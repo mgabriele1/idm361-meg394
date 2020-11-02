@@ -1,0 +1,83 @@
+<html manifest="cache.manifest">
+
+<head>
+	<title>Pocket Planner App</title>
+	<!-- META -->
+	<meta charset="utf-8">
+
+	<!--META TAGS FOR MOBILE: https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html#//apple_ref/doc/uid/TP40002051-CH3-SW3-->
+		<!--sets initial scale to 1, cant be scaled to zoom, sets to fit device size-->
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width, maximum-scale=1.0"> 
+		<!--tells Safari specifically that this is web-app capable-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!--change color of status bar-->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--make app title different than web page title-->
+		<meta name="apple-mobile-web-app-title" content="Pocket Planner">
+		<!--disable auto phone number detection-->
+		<meta name="format-detection" name="telephone=no">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css-normalize.css">
+	<!--ADD TO HOME AFTER NORMALIZE BEFORE MAIN-->
+	<link rel="stylesheet" href="css-add2home.css">
+	<link rel="stylesheet" href="css-main.css">
+	<link rel="icon" href="img/icon.ico" type="image/x-icon">
+
+	<!-- GENERIC ALL SCREENS (180x180)-->
+	<link rel="apple-touch-icon" href="img/icon.png">
+
+	<!--FONT-->
+	<link rel="stylesheet" href="https://use.typekit.net/wlb6ltq.css">
+</head>
+
+<body>
+	<!-- PAGE CONTENT -->
+	<main class="content">
+		<div class="header">
+			<div class="today">
+				<h1 id="weekday"></h1>
+				<h2 id="date"></h2>
+			</div>
+			<i class="i-settings"></i>
+		</div>
+		<div class="main-modal">
+			<div id="day-modal"> 
+				<div class="task">
+					<div class="color"></div>
+					<p>Task filler text</p>
+					<div>
+						<h2>00:00AM</h2>
+						<i class="i-check"></i>
+					</div>
+				</div> 
+			</div>
+			<div id="week-modal"> Week </div>
+			<div id="month-modal"> Month </div>
+			<div id="categories-modal"> Categories </div>
+			<div id="add-modal"> Add </div>
+		</div>
+		<img src="img/add.svg" alt="add" class="add" id="add">
+		<nav>
+			<button id="day" class="active"><i class="i-day"></i></button>
+			<button id="week"><i class="i-week"></i></button>
+			<button id="month"><i class="i-month"></i></button>
+			<button id="categories"><i class="i-categories"></i></button>
+		</nav>
+	</main>
+
+<!-- JAVASCRIPT-->
+<!--CACHE MANIFEST FIRST LOAD-->
+<script src="js-refresh-manifest.js" type="text/javascript"></script>
+  <!--ADD TO HOME BEFORE CUSTOM SCRIPT-->
+  <script type="text/javascript">
+		//custom config settings BEFORE loading add to home js file
+		var addToHomeConfig = {
+		touchIcon: true
+		};
+   </script>
+   <script src="js-add2home.js"></script>
+   <script src="js-main.js"></script>
+</body>
+
+</html>
