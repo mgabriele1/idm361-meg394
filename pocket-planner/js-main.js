@@ -1,3 +1,5 @@
+/* -------- CURRENT WEEKDAY AND DATE ------- */
+
 //for weekday, month, day, and year
 var theDate = new Date();
 
@@ -21,13 +23,16 @@ document.getElementById("weekday").innerHTML = theWeekday;
 //output full date to h2
 document.getElementById("date").innerHTML = theMonth + " " + theNumber + ", " + theYear;
 
-//get buttons
+
+/* -------- ADD BUTTONS AND MODAL ------- */
+
+//button
 var addButton = document.getElementById("add");
 
-//get modals
+//modal
 var addModal = document.getElementById("add-modal");
 
-//event listener - modal and active off, modal and active on for click
+//event listener - modal off, modal on for click
 addButton.addEventListener("click", () => {
     offActive();
     isActive(addButton);
@@ -60,17 +65,26 @@ function addDisplay() {
     }
 }
 
-//resize header on scroll or on modal click
-window.onscroll = function() {scrollFunction()};
-let topLogo = document.getElementById("top-logo");
-let theHeader = document.getElementById("header");
 
+/* -------- HEADER RESIZE ------- */
+
+//get logo
+let topLogo = document.getElementById("top-logo");
+//get header
+let theHeader = document.getElementById("header");
+//get main container
+var theMain = document.getElementById("content");
+//call function on scroll of main container
+theMain.onscroll = function() {scrollFunction()};
+
+//function changes header if page has been scrolled
 function scrollFunction() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+  if (theMain.scrollTop > 40) {
    topLogo.style.width = "10%";
    topLogo.style.position = "absolute";
    topLogo.style.top = "3%";
-   topLogo.style.left = "45%";
+   topLogo.style.left = "47%";
+   topLogo.style.paddingTop = ".15rem";
    theHeader.style.backgroundColor = "var(--lightest2)";
   } else {
     topLogo.style.width = "25%";

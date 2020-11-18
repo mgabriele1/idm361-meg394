@@ -29,7 +29,7 @@ h1 {
 	font-weight: 700;
 	font-style: normal;
 	text-transform: uppercase;
-	font-size: 1.5625rem; /* 25px */
+	font-size: 1.4rem;
 	margin: 0;
 	color: var(--mid);
 }
@@ -53,24 +53,24 @@ h3 {
 
 h4, #submit {
 	font-family: proxima-nova, sans-serif;
-	font-weight: 600;
+	font-weight: 500;
 	font-style: normal;
 	text-transform: uppercase;
-	font-size: 1.25rem; /* 12px */
+	font-size: 1.15rem;
 	color: var(--white);
 }
 
 label {
 	font-family: proxima-nova, sans-serif;
-	font-weight: 600;
+	font-weight: 500;
 	font-style: normal;
 	text-transform: uppercase;
-	font-size: .8rem; /* 12px */
+	font-size: .75rem;
 	color: var(--white);
 }
 
 
-p, input {
+p, input, textarea {
 	font-family: ballinger, sans-serif;
 	font-weight: 400;
 	font-style: normal;
@@ -78,7 +78,7 @@ p, input {
 	color: var(--dark);
 }
 
-/* background */
+/* background and scroll */
 main {
 	background-image: url(img/background.svg);
 	background-color: var(--lightest);
@@ -89,6 +89,7 @@ main {
 	background-repeat: repeat-y;
 	width: 100%;
 	height: 100%;
+	overflow-y: scroll;
 }
 
 /* header */
@@ -103,7 +104,11 @@ main {
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
-	padding: .5rem .5rem 0;
+	padding: .5rem .5rem .5rem;
+}
+
+.today h2 {
+	padding-top: .1rem;
 }
 
 .top-logo {
@@ -122,13 +127,16 @@ main {
 	position: absolute;
 	top: 12%;
 	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.089) 4px 3px 3px;
 }
 
 #modal-x {
+	width: 15%;
+	height: auto;
 	z-index: 1;
 	position: absolute;
-	top: -3%;
-	right: -5%;
+	top: -2%;
+	right: -4%;
 }
 
 .form-wrapper {
@@ -139,23 +147,88 @@ main {
 	justify-content: space-between;
 }
 
-form input {
-	border: none;
-	border-radius: 5px;
-	height: 5%;
+form {
+	width: 100%;
+	padding-top: 1rem;
 }
 
-#red, #orange, #yellow, #green, #blue, #purple {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 0;
+form input, form textarea {
+	border: none;
+	border-radius: 8px;
+	height: 5%;
+	width: 100%;
+	padding: .3rem;
+	margin: .25rem 0 .75rem;
+	box-shadow: rgba(0, 0, 0, 0.062) 3px 2px 2px;
+}
+
+.date-time {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.date-time div {
+	height: max-content;
+}
+
+input[type="radio"] {
+	opacity: 0;
+	position: fixed;
+	width: 0;
+}
+
+.color-radio label {
+    display: inline-block;
+	background-color: #ddd;
+	border-radius: 8px;
+	height: 1.8rem;
+	width: 1.8rem;
+	margin-right: .3rem;
+	box-shadow: rgba(0, 0, 0, 0.062) 3px 2px 2px;
+}
+
+#redL {
+	background-color: var(--red);
+}
+#orangeL {
+	background-color: var(--orange);
+}
+#yellowL {
+	background-color: var(--yellow);
+}
+#greenL {
+	background-color: var(--green);
+}
+#blueL {
+	background-color: var(--blue);
+}
+#purpleL {
+	background-color: var(--purple);
+}
+
+.color-radio input[type="radio"]:checked + label {
+    border: 5px solid var(--dark);
+}
+
+#taskDetails {
+	padding-bottom: 4rem;
+}
+
+.submit-wrapper {
+	margin-top: 1rem;
+	display: flex;
+	width: 100%;
+	justify-content: center;
 }
 
 #submit {
 	background-color: var(--dark);
-	padding: 1rem;
-	width: 80%;
+	padding: .7rem;
+	width: 60%;
 	height: auto;
+	font-weight: 600;
+	box-shadow: rgba(0, 0, 0, 0.068) 4px 3px 3px;
 }
 
 /* add button */
@@ -170,7 +243,7 @@ form input {
 
 /* main content */
 .main-content {
-	padding-top: 40%;
+	padding-top: 47%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -184,9 +257,10 @@ form input {
 	border-radius: 8px;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: .625rem; /*10px*/
+	margin-bottom: .625rem; /*10px*/
 	padding-right: .5rem;
 	height: auto;
+	box-shadow: rgba(0, 0, 0, 0.089) 4px 3px 3px;
 }
 .color {
 	background-color: var(--red);
@@ -221,6 +295,20 @@ form input {
 	background-color: unset;
 	border: 4px solid var(--dark);
 	border-radius: 4px;
+}
+
+/* date separators */
+.task-date {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: .5rem;
+}
+.task-date h1 {
+	font-size: .9rem;
+}
+.task-date h2 {
+	font-size: .6rem;
 }
 
 /* PORTRAIT */
