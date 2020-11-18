@@ -30,13 +30,6 @@ CACHE:
 
 # VIDEO
 
-# FONTS
-planner-font/planner.eot
-planner-font/planner.svg
-planner-font/planner.ttf
-planner-font/planner.woff
-planner-font/planner.woff2
-
 # HTML FILES
  index.html
 

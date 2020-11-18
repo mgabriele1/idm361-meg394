@@ -22,44 +22,12 @@ document.getElementById("weekday").innerHTML = theWeekday;
 document.getElementById("date").innerHTML = theMonth + " " + theNumber + ", " + theYear;
 
 //get buttons
-var dayButton = document.getElementById("day");
-var weekButton = document.getElementById("week");
-var monthButton = document.getElementById("month");
-var categoriesButton = document.getElementById("categories");
 var addButton = document.getElementById("add");
 
 //get modals
-var dayModal = document.getElementById("day-modal");
-var weekModal = document.getElementById("week-modal");
-var monthModal = document.getElementById("month-modal");
-var categoriesModal = document.getElementById("categories-modal");
 var addModal = document.getElementById("add-modal");
 
 //event listener - modal and active off, modal and active on for click
-dayButton.addEventListener("click", () => {
-    offActive();
-    isActive(dayButton);
-    modalOn(dayModal);  
-    addDisplay();  
-}, false);
-weekButton.addEventListener("click", () => {
-    offActive();
-    isActive(weekButton);
-    modalOn(weekModal);
-    addDisplay();
-}, false);
-monthButton.addEventListener("click", () => {
-    offActive();
-    isActive(monthButton);
-    modalOn(monthModal);
-    addDisplay();
-}, false);
-categoriesButton.addEventListener("click", () => {
-    offActive();
-    isActive(categoriesButton);
-    modalOn(categoriesModal);
-    addDisplay();
-}, false);
 addButton.addEventListener("click", () => {
     offActive();
     isActive(addButton);
@@ -69,16 +37,7 @@ addButton.addEventListener("click", () => {
 
 // modal and active off
 function offActive () {
-    dayButton.classList.remove("active");
-    weekButton.classList.remove("active");
-    monthButton.classList.remove("active");
-    categoriesButton.classList.remove("active");
     addButton.classList.remove("active");
-
-    dayModal.style.display = "none";
-    weekModal.style.display = "none";
-    monthModal.style.display = "none";
-    categoriesModal.style.display = "none";
     addModal.style.display = "none";
 }
 
@@ -99,6 +58,25 @@ function addDisplay() {
     } else {
         addButton.style.display = "block";
     }
+}
+
+//resize header on scroll or on modal click
+window.onscroll = function() {scrollFunction()};
+let topLogo = document.getElementById("top-logo");
+let theHeader = document.getElementById("header");
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+   topLogo.style.width = "10%";
+   topLogo.style.position = "absolute";
+   topLogo.style.top = "3%";
+   topLogo.style.left = "45%";
+   theHeader.style.backgroundColor = "var(--lightest2)";
+  } else {
+    topLogo.style.width = "25%";
+    topLogo.style.position = "static";
+    theHeader.style.backgroundColor = "unset";
+  }
 }
 
 
