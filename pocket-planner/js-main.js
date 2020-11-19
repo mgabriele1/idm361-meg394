@@ -26,45 +26,26 @@ document.getElementById("date").innerHTML = theMonth + " " + theNumber + ", " + 
 
 /* -------- ADD BUTTONS AND MODAL ------- */
 
-//button
+//buttons
 var addButton = document.getElementById("add");
+var xButton = document.getElementById("modal-x")
 
 //modal
 var addModal = document.getElementById("add-modal");
 
-//event listener - modal off, modal on for click
+//event listener - modal off, modal on for click, header change
 addButton.addEventListener("click", () => {
-    offActive();
-    isActive(addButton);
-    modalOn(addModal);
-    addDisplay();
+    addButton.style.display = "none";
+    addModal.style.display = "block";
+    scrollFunction();
 }, false);
 
-// modal and active off
-function offActive () {
-    addButton.classList.remove("active");
+//event listener - x out
+xButton.addEventListener("click", () => {
     addModal.style.display = "none";
-}
-
-// active on for click
-function isActive(button) {
-   button.classList.add("active");
-}
-
-//modal on for click
-function modalOn(modal) {
-    modal.style.display = "block";
-}
-
-//add modal on, add button off {
-function addDisplay() {
-    if (addButton.classList.contains("active")) {
-        addButton.style.display = "none";
-    } else {
-        addButton.style.display = "block";
-    }
-}
-
+    addButton.style.display = "block";
+    scrollFunction();
+}, false);
 
 /* -------- HEADER RESIZE ------- */
 
@@ -79,21 +60,44 @@ theMain.onscroll = function() {scrollFunction()};
 
 //function changes header if page has been scrolled
 function scrollFunction() {
-  if (theMain.scrollTop > 40) {
-   topLogo.style.width = "10%";
-   topLogo.style.position = "absolute";
-   topLogo.style.top = "3%";
-   topLogo.style.left = "47%";
-   topLogo.style.paddingTop = ".15rem";
-   theHeader.style.backgroundColor = "var(--lightest2)";
-  } else {
+    if (theMain.scrollTop > 40) {
+    topLogo.style.width = "10%";
+    topLogo.style.position = "absolute";
+    topLogo.style.top = "3%";
+    topLogo.style.left = "47%";
+    topLogo.style.paddingTop = ".15rem";
+    theHeader.style.backgroundColor = "var(--lightest2)";
+    } else if (addModal.style.display == "block") {
+    topLogo.style.width = "12%";
+    topLogo.style.position = "absolute";
+    topLogo.style.top = "8%";
+    topLogo.style.left = "47%";
+    topLogo.style.paddingTop = ".15rem";
+    } else  {
     topLogo.style.width = "25%";
     topLogo.style.position = "static";
     theHeader.style.backgroundColor = "unset";
-  }
+    }
 }
 
+/* -------- CHECK BUTTON FUNCTIONALITY ------- */
+// let checkBox = document.getElementById("checkbox");
+// let checkImg = document.getElementById("checkimg");
+
+// checkBox.addEventListener("click", () => {
+//     checkImg.style.display = "block";
+// }, false);
 
 
+// var checkBox = document.getElementsByClassName("checkbox");
+
+// function addCheck(i) {
+//     // checkImg.style.display = "block";
+//     i.console.log(i);
+// };
+
+// for (var i = 0; i < checkBox.length; i++) {
+//     checkBox[i].addEventListener('click', addCheck(i), false);
+// }
 
 

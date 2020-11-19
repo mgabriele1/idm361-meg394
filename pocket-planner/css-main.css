@@ -297,6 +297,15 @@ input[type="radio"] {
 	border-radius: 4px;
 }
 
+/* check */
+
+.checkimg {
+	width: 220%;
+	height: auto;
+	transform: translate(0px, -14px);
+	display: none;
+}
+
 /* date separators */
 .task-date {
 	width: 100%;
