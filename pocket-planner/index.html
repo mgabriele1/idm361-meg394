@@ -31,7 +31,7 @@
 	<link rel="stylesheet" href="https://use.typekit.net/wlb6ltq.css">
 </head>
 
-<body>
+<body onload="readData();">
 	<!-- PAGE CONTENT -->
 	<main class="content" id="content">
 		<!--HEADER-->
@@ -46,52 +46,85 @@
 		<div class="main-content">
 			<!--TASK-->
 			<div class="task">
-				<div class="task-left">
-					<div class="color"></div>
-					<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-					</p>
+				<div class="color"></div>
+				<p>Task filler text</p>
+				<h3>00:00AM</h3>
+				<div class="checkbox">
+					<!-- <img src="img/check.gif" alt="check"> -->
 				</div>
-				<div class="task-right">
-					<h3>00:00AM</h3>
-					<div class="checkbox">
-						<img src="img/check.gif" alt="check">
-					</div>
+			</div> 
+
+			<!--DATE-->
+			<div class="task-date-container">
+				<h1 id="task-day">TheWeekday</h1>
+				<h2 id="task-date">Month 00, 0000</h2>
+			</div>
+
+			<div class="task">
+				<div class="color"></div>
+				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
+				</p>
+				<h3>00:00AM</h3>
+				<div class="checkbox">
+					<!-- <img src="img/check.gif" alt="check"> -->
 				</div>
 			</div> 
 
 			<div class="task">
-				<div class="task-left">
-					<div class="color"></div>
-					<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-					</p>
-				</div>
-				<div class="task-right">
-					<h3>00:00AM</h3>
-					<div class="checkbox">
-						<img src="img/check.gif" alt="check">
-					</div>
+				<div class="color"></div>
+				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
+				</p>
+				<h3>00:00AM</h3>
+				<div class="checkbox">
+					<!-- <img src="img/check.gif" alt="check"> -->
 				</div>
 			</div> 
 
-				<!--DATE-->
-				<div class="task-date">
-					<h1 id="task-day">TheWeekday</h1>
-					<h2 id="task-date">Month 00, 0000</h2>
+			<div class="task">
+				<div class="color"></div>
+				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
+				</p>
+				<h3>00:00AM</h3>
+				<div class="checkbox">
+					<!-- <img src="img/check.gif" alt="check"> -->
 				</div>
+			</div> 
 
-				<div class="task">
-					<div class="task-left">
-						<div class="color"></div>
-						<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-						</p>
-					</div>
-					<div class="task-right">
-						<h3>00:00AM</h3>
-						<div class="checkbox">
-							<img src="img/check.gif" alt="check">
-						</div>
-					</div>
-				</div> 
+			<!--DATE-->
+			<div class="task-date-container">
+				<h1 id="task-day">TheWeekday</h1>
+				<h2 id="task-date">Month 00, 0000</h2>
+			</div>
+
+			<div class="task">
+				<div class="color"></div>
+				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
+				</p>
+				<h3>00:00AM</h3>
+				<div class="checkbox">
+					<!-- <img src="img/check.gif" alt="check"> -->
+				</div>
+			</div> 
+
+			<div class="task">
+				<div class="color"></div>
+				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
+				</p>
+				<h3>00:00AM</h3>
+				<div class="checkbox">
+					<!-- <img src="img/check.gif" alt="check"> -->
+				</div>
+			</div> 
+			<div class="task">
+				<div class="color"></div>
+				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
+				</p>
+				<h3>00:00AM</h3>
+				<div class="checkbox">
+					<!-- <img src="img/check.gif" alt="check"> -->
+				</div>
+			</div> 
+		</div>
 			
 			<!--ADD BUTTON-->
 			<img src="img/add.svg" alt="add" class="add" id="add">
@@ -102,42 +135,49 @@
 				<div class="form-wrapper">
 				<h4>Add Task</h4>
 				<form id="taskform">
-					<label for="taskTitle">Title</label><br>
-					<textarea name="taskTitle" id="taskTitle" form="taskform" placeholder="Add description..."></textarea>
-					<div class="date-time">
-						<div>
-							<label for="taskDate">Date</label><br>
-							<input type="date" id="taskDate" name="taskDate"><br>
+					<div>
+						<label for="taskTitle">Title</label><br>
+						<textarea name="taskTitle" id="taskTitle" form="taskform" placeholder="Add description..."></textarea>
+					</div>
+					<div class="date-time-color">
+						<div class="date-time">
+							<div>
+								<label for="taskDate">Date</label><br>
+								<input type="date" id="taskDate" name="taskDate"><br>
+							</div>
+							<div>
+								<label for="taskTime">Time</label><br>
+								<input type="time" id="taskTime" name="taskTime">
+							</div>
 						</div>
 						<div>
-							<label for="taskTime">Time</label><br>
-							<input type="time" id="taskTime" name="taskTime">
+							<label for="taskColors">Colors</label><br>
+							<div class="color-radio">
+								<input type="radio" id="red" name="taskColors" value="red">
+								<label for="red" id="redL"></label>
+								<input type="radio" id="orange" name="taskColors" value="orange">
+								<label for="orange" id="orangeL"></label>
+								<input type="radio" id="yellow" name="taskColors" value="yellow">
+								<label for="yellow" id="yellowL"></label>
+								<input type="radio" id="green" name="taskColors" value="green">
+								<label for="green" id="greenL"></label>
+								<input type="radio" id="blue" name="taskColors" value="blue">
+								<label for="blue" id="blueL"></label>
+								<input type="radio" id="purple" name="taskColors" value="purple">
+								<label for="purple" id="purpleL"></label><br>
+							</div>
 						</div>
 					</div>
-					<label for="taskColors">Colors</label><br>
-					<div class="color-radio">
-						<input type="radio" id="red" name="taskColors" value="red">
-						<label for="red" id="redL"></label>
-						<input type="radio" id="orange" name="taskColors" value="orange">
-						<label for="orange" id="orangeL"></label>
-						<input type="radio" id="yellow" name="taskColors" value="yellow">
-						<label for="yellow" id="yellowL"></label>
-						<input type="radio" id="green" name="taskColors" value="green">
-						<label for="green" id="greenL"></label>
-						<input type="radio" id="blue" name="taskColors" value="blue">
-						<label for="blue" id="blueL"></label>
-						<input type="radio" id="purple" name="taskColors" value="purple">
-						<label for="purple" id="purpleL"></label><br>
+					<div>
+						<label for="taskDetails">Details</label><br>
+						<textarea name="taskDetails" id="taskDetails" form="taskform" placeholder="Add details..."></textarea>
 					</div>
-					<label for="taskDetails">Details</label><br>
-					<textarea name="taskDetails" id="taskDetails" form="taskform" placeholder="Add details..."></textarea>
 					<div class="submit-wrapper">
-						<input id="submit" type="submit" value="Add Task">
+						<input id="submit" type="submit" value="Add Task" onlick="writeData()">
 					</div>
 				  </form>
 				</div>
 			</div>
-		</div>
 	</main>
 
 <!-- JAVASCRIPT-->

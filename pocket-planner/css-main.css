@@ -82,14 +82,15 @@ p, input, textarea {
 main {
 	background-image: url(img/background.svg);
 	background-color: var(--lightest);
-	width: 100vw;
-	height: 100vh;
 	background-size: cover;
 	background-position: center;
 	background-repeat: repeat-y;
 	width: 100%;
 	height: 100%;
 	overflow-y: scroll;
+	display: flex;
+	align-content: center;
+	justify-content: center;
 }
 
 /* header */
@@ -104,7 +105,7 @@ main {
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
-	padding: .5rem .5rem .5rem;
+	padding: 1rem .75rem;
 }
 
 .today h2 {
@@ -149,7 +150,11 @@ main {
 
 form {
 	width: 100%;
+	height: 90%;
 	padding-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 form input, form textarea {
@@ -161,15 +166,27 @@ form input, form textarea {
 	margin: .25rem 0 .75rem;
 	box-shadow: rgba(0, 0, 0, 0.062) 3px 2px 2px;
 }
-
-.date-time {
+#taskTitle {
+	height: 10%;
+}
+.date-time-color {
+	height: 25%;
 	display: flex;
-	width: 100%;
+	flex-direction: column;
 	justify-content: space-between;
 }
 
-.date-time div {
-	height: max-content;
+.date-time {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.date-time > * {
+	padding-right: 4rem;
+}
+#taskDate, #taskTime {
+	height: 25%;
+	width: 100%;
 }
 
 input[type="radio"] {
@@ -212,7 +229,7 @@ input[type="radio"] {
 }
 
 #taskDetails {
-	padding-bottom: 4rem;
+	height: 20%;
 }
 
 .submit-wrapper {
@@ -243,80 +260,68 @@ input[type="radio"] {
 
 /* main content */
 .main-content {
-	padding-top: 47%;
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	height: 70%;
+	display: grid;
+	height: 100%;
+	margin-top: 12rem;
 }
 .task {
 	width: 90%;
+	height: max-content;
 	background-color: var(--white);
-	display: flex;
 	border-radius: 8px;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: .625rem; /*10px*/
-	padding-right: .5rem;
-	height: auto;
+	display: grid;
+	grid-template-columns: .075fr 1fr .1fr .15fr;
 	box-shadow: rgba(0, 0, 0, 0.089) 4px 3px 3px;
+	margin-bottom: .5rem;
+	justify-self: center;
 }
 .color {
 	background-color: var(--red);
 	height: 100%;
-	width: 6%;
 	border-radius: 8px 0 0 8px;
 }
-.task-left {
-	display: flex;
-	width: 74%;
-	align-items: center;
-	height: 100%;
+.task p {
+	padding: .75rem .5rem .75rem 1.5rem;
+	align-self: center;
 }
-.task-left p {
-	padding: .65rem 1rem;
-	width: 94%;
-}
-.task-right {
-	display: flex;
-	width: 26%;
-	height: 100%;
-	align-items: center;
-}
-.task-right h3 {
+
+.task h3 {
 	padding-right: .5rem;
 	padding-top: .75rem;
+	padding-bottom: 1.5rem;
 	align-self: flex-start;
 }
+
 .checkbox {
 	width: 1.4rem;
 	height: 1.4rem;
 	background-color: unset;
 	border: 4px solid var(--dark);
 	border-radius: 4px;
+	align-self: center;
 }
 
 /* check */
 
-.checkimg {
+/* .checkimg {
 	width: 220%;
 	height: auto;
 	transform: translate(0px, -14px);
 	display: none;
-}
+} */
 
 /* date separators */
-.task-date {
+.task-date-container {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	padding: .5rem;
+	padding: .5rem .75rem;
 }
-.task-date h1 {
+.task-date-container h1 {
 	font-size: .9rem;
 }
-.task-date h2 {
+.task-date-container h2 {
 	font-size: .6rem;
 }
 
@@ -326,6 +331,10 @@ input[type="radio"] {
 		bottom: 3.5%;
 		right: 3.5%;
 	}
+	.top-logo {
+		justify-self: center;
+		width: 25%;
+	}
 } 
 
 /* LANDSCAPE */
@@ -333,5 +342,72 @@ input[type="radio"] {
 	.add {
 		bottom: 1.8%;
 		right: 1.8%;
+	}
+	.top-logo {
+		justify-self: center;
+		width: 12%;
+		margin-top: -1.5rem;
+	}
+	#add-modal {
+		display: none;
+		background-color: var(--light);
+		width: 90%;
+		height: 85%;
+		justify-self: center;
+		z-index: 2;
+		position: absolute;
+		top: 12%;
+		border-radius: 15px;
+		box-shadow: rgba(0, 0, 0, 0.089) 4px 3px 3px;
+	}
+	#modal-x {
+		width: 7%;
+		height: auto;
+		z-index: 1;
+		position: absolute;
+		top: -3%;
+		right: -2.5%;
+	}
+	form {
+		width: 95%;
+		height: 85%;
+		padding-top: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.date-time-color {
+		height: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.date-time {
+		width: 50%;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.date-time > * {
+		padding-right: 0;
+	}
+
+	#taskDate, #taskTime {
+		height: 10%;
+		width: 100%;
+	}
+	.task h3 {
+		padding: .75rem .75rem 0;
+		align-self: flex-start;
+	}
+	.main-content {
+		width: 100%;
+		display: grid;
+		height: 100%;
+		margin-top: 10rem;
+	}
+	.task {
+		justify-self: center;
 	}
 } 

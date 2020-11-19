@@ -10,21 +10,11 @@ CACHE:
 
 # IMAGES
  img/add.svg
- img/arrow.svg
  img/background.svg
- img/calendar.svg
- img/categories.svg
- img/clock.svg
- img/daya.svg
- img/dayi.svg
+ img/check.gif
  img/icon.ico
- img/icon.png
- img/kalidescope.svg
- img/land.png
- img/month.svg
- img/port.png
- img/settings.svg
- img/week.svg
+ img/icon.svg
+ img/x.svg
 
 # AUDIO
 
