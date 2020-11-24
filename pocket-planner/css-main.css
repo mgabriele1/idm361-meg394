@@ -15,7 +15,7 @@
 	--dark: #070860;
 	--red: #D57C7C;
 	--orange: #D5A97C;
-	--yellow: #D5CE7C;
+	--yellow: #e0d87f;
 	--green: #BDD57C;
 	--blue: #7CC0D5;
 	--purple: #BA7CD5;
@@ -29,8 +29,8 @@ h1 {
 	font-weight: 700;
 	font-style: normal;
 	text-transform: uppercase;
-	font-size: 1.4rem;
-	margin: 0;
+	font-size: 1.6rem;
+	margin: -.1rem 0 0 0;
 	color: var(--mid);
 }
 
@@ -39,7 +39,7 @@ h2 {
 	font-weight: 400;
 	font-style: normal;
 	text-transform: uppercase;
-	font-size: .75rem; /* 12px */
+	font-size: .8rem; /* 12px */
 	color: var(--dark);
 }
 
@@ -60,7 +60,7 @@ h4, #submit {
 	color: var(--white);
 }
 
-label {
+h5 {
 	font-family: proxima-nova, sans-serif;
 	font-weight: 500;
 	font-style: normal;
@@ -74,7 +74,7 @@ p, input, textarea {
 	font-family: ballinger, sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	font-size: .6875rem; /* 11px */
+	font-size: .8125rem; /* 13px */
 	color: var(--dark);
 }
 
@@ -110,11 +110,6 @@ main {
 
 .today h2 {
 	padding-top: .1rem;
-}
-
-.top-logo {
-	justify-self: center;
-	width: 25%;
 }
 
 /* add modal */
@@ -240,6 +235,8 @@ input[type="radio"] {
 }
 
 #submit {
+	border-radius: 10px;
+	border: none;
 	background-color: var(--dark);
 	padding: .7rem;
 	width: 60%;
@@ -262,8 +259,12 @@ input[type="radio"] {
 .main-content {
 	width: 100%;
 	display: grid;
+	grid-auto-rows: min-content;
 	height: 100%;
-	margin-top: 12rem;
+	margin-top: 3.75rem;
+}
+.task-toggle {
+	opacity: .5;
 }
 .task {
 	width: 90%;
@@ -302,14 +303,22 @@ input[type="radio"] {
 	align-self: center;
 }
 
+.checkbox-on {
+	background-color: red;
+}
+
 /* check */
 
-/* .checkimg {
-	width: 220%;
+.checkimg {
+	width: 210%;
 	height: auto;
 	transform: translate(0px, -14px);
 	display: none;
-} */
+}
+
+.check-toggle {
+	display: block;
+}
 
 /* date separators */
 .task-date-container {
@@ -319,10 +328,10 @@ input[type="radio"] {
 	padding: .5rem .75rem;
 }
 .task-date-container h1 {
-	font-size: .9rem;
+	font-size: 1rem;
 }
 .task-date-container h2 {
-	font-size: .6rem;
+	font-size: .75rem;
 }
 
 /* PORTRAIT */
@@ -331,10 +340,6 @@ input[type="radio"] {
 		bottom: 3.5%;
 		right: 3.5%;
 	}
-	.top-logo {
-		justify-self: center;
-		width: 25%;
-	}
 } 
 
 /* LANDSCAPE */
@@ -342,11 +347,6 @@ input[type="radio"] {
 	.add {
 		bottom: 1.8%;
 		right: 1.8%;
-	}
-	.top-logo {
-		justify-self: center;
-		width: 12%;
-		margin-top: -1.5rem;
 	}
 	#add-modal {
 		display: none;
@@ -368,6 +368,8 @@ input[type="radio"] {
 		top: -3%;
 		right: -2.5%;
 	}
+	/* form */
+
 	form {
 		width: 95%;
 		height: 85%;
@@ -376,6 +378,7 @@ input[type="radio"] {
 		flex-direction: column;
 		justify-content: space-between;
 	}
+
 	.date-time-color {
 		height: auto;
 		display: flex;
@@ -405,7 +408,7 @@ input[type="radio"] {
 		width: 100%;
 		display: grid;
 		height: 100%;
-		margin-top: 10rem;
+		margin-top: 3.5rem;
 	}
 	.task {
 		justify-self: center;

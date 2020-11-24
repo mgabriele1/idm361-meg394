@@ -40,90 +40,23 @@
 				<h1 id="weekday"></h1>
 				<h2 id="date"></h2>
 			</div>
-			<img class="top-logo" id="top-logo" src="img/icon.svg" alt="logo">
 		</div>
 		<!--TASK LISTING-->
-		<div class="main-content">
+		<div class="main-content" id="main-content">
 			<!--TASK-->
-			<div class="task">
+			<!-- <div class="task" id="task1">
 				<div class="color"></div>
 				<p>Task filler text</p>
 				<h3>00:00AM</h3>
 				<div class="checkbox">
-					<!-- <img src="img/check.gif" alt="check"> -->
+					<img src="img/check.gif" alt="check" class="checkimg">
 				</div>
-			</div> 
-
+			</div>  -->
 			<!--DATE-->
-			<div class="task-date-container">
+			<!-- <div class="task-date-container">
 				<h1 id="task-day">TheWeekday</h1>
 				<h2 id="task-date">Month 00, 0000</h2>
-			</div>
-
-			<div class="task">
-				<div class="color"></div>
-				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-				</p>
-				<h3>00:00AM</h3>
-				<div class="checkbox">
-					<!-- <img src="img/check.gif" alt="check"> -->
-				</div>
-			</div> 
-
-			<div class="task">
-				<div class="color"></div>
-				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-				</p>
-				<h3>00:00AM</h3>
-				<div class="checkbox">
-					<!-- <img src="img/check.gif" alt="check"> -->
-				</div>
-			</div> 
-
-			<div class="task">
-				<div class="color"></div>
-				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-				</p>
-				<h3>00:00AM</h3>
-				<div class="checkbox">
-					<!-- <img src="img/check.gif" alt="check"> -->
-				</div>
-			</div> 
-
-			<!--DATE-->
-			<div class="task-date-container">
-				<h1 id="task-day">TheWeekday</h1>
-				<h2 id="task-date">Month 00, 0000</h2>
-			</div>
-
-			<div class="task">
-				<div class="color"></div>
-				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-				</p>
-				<h3>00:00AM</h3>
-				<div class="checkbox">
-					<!-- <img src="img/check.gif" alt="check"> -->
-				</div>
-			</div> 
-
-			<div class="task">
-				<div class="color"></div>
-				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-				</p>
-				<h3>00:00AM</h3>
-				<div class="checkbox">
-					<!-- <img src="img/check.gif" alt="check"> -->
-				</div>
-			</div> 
-			<div class="task">
-				<div class="color"></div>
-				<p>Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text Task filler text
-				</p>
-				<h3>00:00AM</h3>
-				<div class="checkbox">
-					<!-- <img src="img/check.gif" alt="check"> -->
-				</div>
-			</div> 
+			</div> -->
 		</div>
 			
 			<!--ADD BUTTON-->
@@ -136,44 +69,45 @@
 				<h4>Add Task</h4>
 				<form id="taskform">
 					<div>
-						<label for="taskTitle">Title</label><br>
-						<textarea name="taskTitle" id="taskTitle" form="taskform" placeholder="Add description..."></textarea>
+						<h5>Title</h5>
+						<textarea name="taskTitle" id="taskTitle" form="taskform" placeholder="Add description..." value=""></textarea>
+						<input type="hidden" name="ndx_result" id="ndx_result" value="0" disabled>
 					</div>
 					<div class="date-time-color">
 						<div class="date-time">
 							<div>
-								<label for="taskDate">Date</label><br>
+								<h5>Date</h5>
 								<input type="date" id="taskDate" name="taskDate"><br>
 							</div>
 							<div>
-								<label for="taskTime">Time</label><br>
+								<h5>Time</h5>
 								<input type="time" id="taskTime" name="taskTime">
 							</div>
 						</div>
 						<div>
-							<label for="taskColors">Colors</label><br>
+							<h5>Colors<h5>
 							<div class="color-radio">
-								<input type="radio" id="red" name="taskColors" value="red">
+								<input type="radio" id="red" name="taskColors" value="red" class="taskColors">
 								<label for="red" id="redL"></label>
-								<input type="radio" id="orange" name="taskColors" value="orange">
+								<input type="radio" id="orange" name="taskColors" value="orange" class="taskColors">
 								<label for="orange" id="orangeL"></label>
-								<input type="radio" id="yellow" name="taskColors" value="yellow">
+								<input type="radio" id="yellow" name="taskColors" value="yellow" class="taskColors">
 								<label for="yellow" id="yellowL"></label>
-								<input type="radio" id="green" name="taskColors" value="green">
+								<input type="radio" id="green" name="taskColors" value="green" class="taskColors">
 								<label for="green" id="greenL"></label>
-								<input type="radio" id="blue" name="taskColors" value="blue">
+								<input type="radio" id="blue" name="taskColors" value="blue" class="taskColors">
 								<label for="blue" id="blueL"></label>
-								<input type="radio" id="purple" name="taskColors" value="purple">
+								<input type="radio" id="purple" name="taskColors" value="purple" class="taskColors">
 								<label for="purple" id="purpleL"></label><br>
 							</div>
 						</div>
 					</div>
 					<div>
-						<label for="taskDetails">Details</label><br>
+						<h5>Details</h5>
 						<textarea name="taskDetails" id="taskDetails" form="taskform" placeholder="Add details..."></textarea>
 					</div>
 					<div class="submit-wrapper">
-						<input id="submit" type="submit" value="Add Task" onlick="writeData()">
+						<button type="button" name="submit" id="submit" onclick="writeData()">Add Task</button>
 					</div>
 				  </form>
 				</div>
