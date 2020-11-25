@@ -2,7 +2,6 @@
 
 var taskTitleArray = new Array();
 var taskDateArray = new Array();
-var taskTimeArray = new Array();
 var taskDetailsArray = new Array();
 var mainNdx = 0;
 
@@ -13,13 +12,11 @@ function readData() {
     // Read data from local storage
     taskTitleStr = localStorage.my_taskTitle;
     taskDateStr = localStorage.my_taskDate;
-    taskTimeStr = localStorage.my_taskTime;
     taskDetailsStr = localStorage.my_taskDetails;
     ndxStr = localStorage.my_Ndx;
 
     console.log("taskTitleStr is .. " + taskTitleStr);
     console.log("taskDateStr is .. " + taskDate);
-    console.log("taskTimeStr is .. " + taskTime);
     console.log("taskDetailsStr is .. " + taskDetails);
     console.log("ndxStr is .. " + ndxStr);
 
@@ -27,21 +24,18 @@ function readData() {
       // Convert data string into array
       taskTitleArray = taskTitleStr.split(",");
       taskDateArray = taskDateStr.split(",");
-      taskTimeArray = taskTimeStr.split(",");
       taskDetailsArray = taskDetailsStr.split(",");
       // Convert Ndx string into integer
       mainNdx = parseInt(ndxStr);
       // Display data screen
       taskTitle.value = taskTitleArray[mainNdx];
       taskDate.value = taskDateArray[mainNdx];
-      taskTime.value = taskTimeArray[mainNdx];
       taskDetails.value = taskDetailsArray[mainNdx];
       ndx_result.value = mainNdx;
     } else {
       // Initize data if it is empty/invalid
       taskTitle.value = "";
       taskDate.value = "";
-      taskTime.value = "";
       taskDetails.value = "";
       mainNdx = 0;
     }
@@ -63,25 +57,23 @@ function writeData() {
              // Add data to array
             taskTitleArray.push(taskTitle.value);
             taskDateArray.push(taskDate.value);
-            taskTimeArray.push(taskTime.value);
             taskDetailsArray.push(taskDetails.value);
             // Increment array index number
             mainNdx = taskTitleArray.length - 1;
             // Convert arrays into data strings
             taskTitleStr = taskTitleArray.join();
             taskDateStr = taskDateArray.join();
-            taskTimeStr = taskTimeArray.join();
             taskDetailsStr = taskDetailsArray.join();
             // save data strings to local storage
             localStorage.my_taskTitle = taskTitleStr;
             localStorage.my_taskDate = taskDateStr;
-            localStorage.my_taskTime = taskTimeStr;
             localStorage.my_taskDetails = taskDetailsStr;
             localStorage.my_Ndx = mainNdx;
             //
             ndx_result.value = mainNdx;
             alert('Record ADDED.');
             createTask();
+            console.log(taskDate.value);
         } else {
             alert('Please add a title');
         }
@@ -94,30 +86,6 @@ function writeData() {
   }
 }
 
-/* -------- TASK COLOR ------- */
-var taskColor = document.getElementsByClassName("taskColors");
-
-for (var i = 0; i < taskColor.length; i++) {
-    taskColor[i].addEventListener("click", function(){
-        whichColor = event.target.id;
-        if (whichColor == "red") {
-            theTaskColor = "var(--red)";
-        } else if (whichColor == "orange") {
-            theTaskColor = "var(--orange)";
-        } else if (whichColor == "yellow") {
-            theTaskColor = "var(--yellow)";
-        } else if (whichColor == "green") {
-            theTaskColor = "var(--green)";
-        } else if (whichColor == "blue") {
-            theTaskColor = "var(--blue)";
-        } else if (whichColor == "purple") {
-            theTaskColor = "var(--purple)";
-        } else {
-            alert("Please select a color");   
-        }
-    }, false);
-}
-
 /* -------- TASK CREATION ------- */
 let mainContent = document.getElementById("main-content");
 var taskCount = 0;
@@ -126,12 +94,6 @@ function createTask() {
     var newTask = document.createElement('div');
     newTask.className = 'task';
     mainContent.appendChild(newTask);
-    //create color div
-    var newTaskColor = document.createElement('div');
-    newTaskColor.className = 'color';
-    //to select correct color
-    newTaskColor.style.backgroundColor = theTaskColor;
-    newTask.appendChild(newTaskColor);
     //create paragraph div and fill with title
     var newTaskP = document.createElement('p');
     newTaskP.innerHTML = taskTitleArray[taskCount];
@@ -145,15 +107,20 @@ function createTask() {
         // // Update web form fields with new values
         // taskTitle.value = taskTitleArray[0];
         // taskDate.value = taskDateArray[0];
-        // taskTime.value = taskTimeArray[0];
         // taskDetails.value = taskDetailsArray[0];
         // ndx_result.value = 0;
         // // Save current index to local storage
         // localStorage.my_Ndx = 0;
     };
-    //create h3 div and fill with time
+    //create h3 div and fill with date
     var newTaskH3 = document.createElement('h3');
-    newTaskH3.innerHTML = taskTimeArray[taskCount];
+    var theSetDate = taskDateArray[taskCount].split("-");
+    var theSetYear = theSetDate[0];
+    var theSetMonth = theSetDate[1];
+    var monthAbbrev = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var theMonthAbbrev = monthAbbrev[theSetMonth];
+    var theSetDay = theSetDate[2];
+    newTaskH3.innerHTML = theMonthAbbrev + " " + theSetDay + ", " + theSetYear;
     newTask.appendChild(newTaskH3);
     //create checkbox div
     var newTaskCheck = document.createElement('div');
