@@ -49,10 +49,18 @@ function writeData() {
   console.log("writeData called");
   if (typeof (Storage) !== "undefined") {
 
-    //check the date
-    setTaskDate = Date.parse(taskDate.value);
-    console.log("date entered = " + setTaskDate);
-    if (setTaskDate >= theDate) {
+    //convert date string
+    var setTaskDate = Date.parse(taskDate.value);
+    //split date string, grab year, check length
+    var theSetDate = taskDate.value.split("-");
+    var theSetYear = theSetDate[0];
+    console.log("checkin " + theSetYear.length);
+    var yearLegnth = parseInt(theSetYear.length);
+    //make sure year string is 4 characters
+    if (yearLegnth == 4) {
+      //make sure the date has not passed
+      if (setTaskDate >= theDate) {
+        //make sure a title is entered
         if (taskTitle.value !== "") {
              // Add data to array
             taskTitleArray.push(taskTitle.value);
@@ -77,8 +85,11 @@ function writeData() {
         } else {
             alert('Please add a title');
         }
+      } else {
+          alert('This date has already passed');
+      }
     } else {
-        alert('This date has already passed');
+      alert('Please enter a valid year');
     }
   } else {
     // Sorry! No Web Storage support..
@@ -100,25 +111,30 @@ function createTask() {
     newTask.appendChild(newTaskP);
     //bring up modal on click
     console.log("childrren " + mainContent.children);
+    newTaskP.id = taskCount;
     newTaskP.onclick = function() {
-        console.log("hello!! " + evt);
-        //display modal
-        // addModal.style.display = "block";
-        // // Update web form fields with new values
-        // taskTitle.value = taskTitleArray[0];
-        // taskDate.value = taskDateArray[0];
-        // taskDetails.value = taskDetailsArray[0];
-        // ndx_result.value = 0;
-        // // Save current index to local storage
-        // localStorage.my_Ndx = 0;
+      var thisIndx = event.target.id
+      //display modal
+      addModal.style.display = "block";
+      // Update web form fields with new values
+      taskTitle.value = taskTitleArray[thisIndx];
+      taskDate.value = taskDateArray[thisIndx];
+      taskDetails.value = taskDetailsArray[thisIndx];
+      ndx_result.value = thisIndx;
+      // Save current index to local storage
+      localStorage.my_Ndx = thisIndx;
     };
     //create h3 div and fill with date
     var newTaskH3 = document.createElement('h3');
     var theSetDate = taskDateArray[taskCount].split("-");
     var theSetYear = theSetDate[0];
     var theSetMonth = theSetDate[1];
+    if (theSetMonth.charAt(0) == 0) {
+      theSetMonth = theSetMonth.substring(1);
+    } else {}
+    var monthNumber = parseInt(theSetMonth) - 1;
     var monthAbbrev = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    var theMonthAbbrev = monthAbbrev[theSetMonth];
+    var theMonthAbbrev = monthAbbrev[monthNumber];
     var theSetDay = theSetDate[2];
     newTaskH3.innerHTML = theMonthAbbrev + " " + theSetDay + ", " + theSetYear;
     newTask.appendChild(newTaskH3);
@@ -181,14 +197,12 @@ addButton.addEventListener("click", () => {
     taskTitle.value = "";
     addButton.style.display = "none";
     addModal.style.display = "block";
-    scrollFunction();
 }, false);
 
 //event listener - x out
 xButton.addEventListener("click", () => {
     addModal.style.display = "none";
     addButton.style.display = "block";
-    scrollFunction();
 }, false);
 
 /* -------- HEADER RESIZE ------- */
