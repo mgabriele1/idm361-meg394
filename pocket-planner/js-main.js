@@ -170,25 +170,25 @@ function writeNewData() {
 }
 
 function removeTask() {
-  console.log("remove index records number " + my_Ndx);
-  // let spliceValue = parseInt(mainNdx);
-  // //replace data in array
-  // taskTitleArray.splice(spliceValue, 1);
-  // taskDateArray.splice(spliceValue, 1);
-  // taskDetailsArray.splice(spliceValue, 1);
-  // checkboxClickedArray.splice(spliceValue, 1);
-  // //convert arrays into data strings
-  // taskTitleStr = taskTitleArray.join();
-  // taskDateStr = taskDateArray.join();
-  // taskDetailsStr = taskDetailsArray.join();
-  // checkboxClickedStr = checkboxClickedArray.join();
-  // // save data strings to local storage
-  // localStorage.my_taskTitle = taskTitleStr;
-  // localStorage.my_taskDate = taskDateStr;
-  // localStorage.my_taskDetails = taskDetailsStr;
-  // localStorage.my_checkboxClicked = checkboxClickedStr;
-  // alert('Record DELETED');
-  // location.reload();
+  console.log("remove index records number " + thisIndx);
+  let spliceValue = parseInt(thisIndx);
+  //replace data in array
+  taskTitleArray.splice(spliceValue, 1);
+  taskDateArray.splice(spliceValue, 1);
+  taskDetailsArray.splice(spliceValue, 1);
+  checkboxClickedArray.splice(spliceValue, 1);
+  //convert arrays into data strings
+  taskTitleStr = taskTitleArray.join();
+  taskDateStr = taskDateArray.join();
+  taskDetailsStr = taskDetailsArray.join();
+  checkboxClickedStr = checkboxClickedArray.join();
+  // save data strings to local storage
+  localStorage.my_taskTitle = taskTitleStr;
+  localStorage.my_taskDate = taskDateStr;
+  localStorage.my_taskDetails = taskDetailsStr;
+  localStorage.my_checkboxClicked = checkboxClickedStr;
+  alert('Record DELETED');
+  location.reload();
 }
 
 /* -------- CREATE TASK ------- */
@@ -213,7 +213,7 @@ function populateTasks() {
     //bring up modal on click
     newTaskP.id = i;
     newTaskP.onclick = function() {
-      var thisIndx = event.target.id
+      thisIndx = event.target.id
       //display modal
       addModal.style.display = "block";
       //get title and submit
@@ -252,7 +252,7 @@ function populateTasks() {
     newTaskCheck.id = i;
     //checkbox click
     newTaskCheck.onclick = function() {
-      var thisIndx = event.target.id;
+      thisIndx = event.target.id;
       //get current array value
       isitClicked = checkboxClickedArray[thisIndx];
       //switch it
