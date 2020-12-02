@@ -169,9 +169,31 @@ function writeNewData() {
   }
 }
 
+function removeTask() {
+  console.log("remove index records number " + my_Ndx);
+  // let spliceValue = parseInt(mainNdx);
+  // //replace data in array
+  // taskTitleArray.splice(spliceValue, 1);
+  // taskDateArray.splice(spliceValue, 1);
+  // taskDetailsArray.splice(spliceValue, 1);
+  // checkboxClickedArray.splice(spliceValue, 1);
+  // //convert arrays into data strings
+  // taskTitleStr = taskTitleArray.join();
+  // taskDateStr = taskDateArray.join();
+  // taskDetailsStr = taskDetailsArray.join();
+  // checkboxClickedStr = checkboxClickedArray.join();
+  // // save data strings to local storage
+  // localStorage.my_taskTitle = taskTitleStr;
+  // localStorage.my_taskDate = taskDateStr;
+  // localStorage.my_taskDetails = taskDetailsStr;
+  // localStorage.my_checkboxClicked = checkboxClickedStr;
+  // alert('Record DELETED');
+  // location.reload();
+}
+
 /* -------- CREATE TASK ------- */
 var createdTask = document.getElementsByClassName('task');
-var clickImg = document.getElementsByClassName('checkimg');
+// var clickImg = document.getElementsByClassName('checkimg');
 
 let mainContent = document.getElementById("main-content");
 function populateTasks() {
@@ -189,7 +211,6 @@ function populateTasks() {
     newTaskP.innerHTML = taskTitleArray[i];
     newTask.appendChild(newTaskP);
     //bring up modal on click
-    console.log("childrren " + mainContent.children);
     newTaskP.id = i;
     newTaskP.onclick = function() {
       var thisIndx = event.target.id
@@ -202,6 +223,7 @@ function populateTasks() {
       addModalTitle.innerHTML = "Edit Task";
       addModalSubmit.style.display = "none";
       addModalNewSubmit.style.display = "block";
+      addModalDelete.style.display = "block";
       // Update web form fields with new values
       taskTitle.value = taskTitleArray[thisIndx];
       taskDate.value = taskDateArray[thisIndx];
@@ -254,10 +276,9 @@ function populateTasks() {
     };
     newTask.appendChild(newTaskCheck);
     //checkbox image
-    var newTaskGif = document.createElement('img');
-    newTaskGif.src="img/check.gif";
-    newTaskGif.className = 'checkimg';
-    newTaskCheck.appendChild(newTaskGif);
+    var newTaskGif = document.createElement('div');
+    newTaskGif.className = "checkimg";
+    newTask.appendChild(newTaskGif);
   }
 }
 
@@ -278,7 +299,6 @@ function createTask() {
     newTaskP.innerHTML = taskTitleArray[createdTaskLength];
     newTask.appendChild(newTaskP);
     //bring up modal on click
-    console.log("childrren " + mainContent.children);
     newTaskP.id = createdTaskLength;
     newTaskP.onclick = function() {
       var thisIndx = event.target.id
@@ -343,10 +363,9 @@ function createTask() {
     };
     newTask.appendChild(newTaskCheck);
     //checkbox image
-    var newTaskGif = document.createElement('img');
-    newTaskGif.src="img/check.gif";
-    newTaskGif.className = 'checkimg';
-    newTaskCheck.appendChild(newTaskGif);
+    var newTaskGif = document.createElement('div');
+    newTaskGif.className = "checkimg";
+    newTask.appendChild(newTaskGif);
 }
 
 /* -------- CHECKBOX ------- */
@@ -434,6 +453,8 @@ var addModal = document.getElementById("add-modal");
 //get title and submit
 let addModalTitle = document.getElementById("add-title");
 let addModalSubmit = document.getElementById("submit");
+//get remove
+let addModalDelete = document.getElementById("remove");
 //new submit
 let addModalNewSubmit = document.getElementById("submitnew");
 
@@ -448,6 +469,7 @@ addButton.addEventListener("click", () => {
     addModalTitle.innerHTML = "Add Task";
     addModalSubmit.style.display = "block";
     addModalNewSubmit.style.display = "none";
+    addModalDelete.style.display = "none";
 }, false);
 
 //event listener - x out

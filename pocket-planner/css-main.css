@@ -51,12 +51,12 @@ h3 {
 	color: var(--mid);
 }
 
-h4, #submit, #submitnew {
+h4, #submit, #submitnew, #remove {
 	font-family: proxima-nova, sans-serif;
 	font-weight: 500;
 	font-style: normal;
 	text-transform: uppercase;
-	font-size: 1.15rem;
+	font-size: 1rem;
 	color: var(--white);
 }
 
@@ -196,12 +196,25 @@ form input, form textarea {
 	border-radius: 10px;
 	border: none;
 	background-color: var(--dark);
-	padding: .7rem;
+	padding:  .7rem .5rem;
 	width: 60%;
 	height: auto;
 	font-weight: 600;
 	box-shadow: rgba(0, 0, 0, 0.068) 4px 3px 3px;
 	display: none;
+}
+
+#remove {
+	border-radius: 10px;
+	border: none;
+	background-color: var(--red);
+	padding: .7rem .5rem;
+	width: 60%;
+	height: auto;
+	font-weight: 600;
+	box-shadow: rgba(0, 0, 0, 0.068) 4px 3px 3px;
+	display: none;
+	margin-right: .5rem;
 }
 
 /* add button */
@@ -268,12 +281,22 @@ form input, form textarea {
 
 /* check */
 
-.checkimg {
+/* .task-toggle .checkimg{
+	display: inline-block;
+	position: absolute;
+	transform: rotate(45deg) translate(12.1rem, -11.9rem);;
+	height: 28px;
+	width: 12px;
+	border-bottom: 6px solid var(--dark);
+	border-right: 6px solid var(--dark);
+} */
+
+/* .checkimg {
 	width: 210%;
 	height: auto;
 	transform: translate(0px, -14px);
 	display: none;
-}
+} */
 
 /* .task-toggle img {
 	display: block;
