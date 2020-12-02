@@ -178,7 +178,11 @@ function populateTasks() {
   for (i = 0; i < taskTitleArray.length; i++) {
     //create task div
     var newTask = document.createElement('div');
-    newTask.className = 'task';
+    if (checkboxClickedArray[i] == "true") {
+      newTask.className = 'task task-toggle';
+    } else {
+      newTask.className = 'task';
+    }
     mainContent.appendChild(newTask);
     //create paragraph div and fill with title
     var newTaskP = document.createElement('p');
@@ -227,9 +231,26 @@ function populateTasks() {
     //checkbox click
     newTaskCheck.onclick = function() {
       var thisIndx = event.target.id;
-      console.log(thisIndx);
-      createdTask[thisIndx].classList.toggle("task-toggle");
-      clickImg[thisIndx].classList.toggle("check-toggle");
+      //get current array value
+      isitClicked = checkboxClickedArray[thisIndx];
+      //switch it
+      if (isitClicked == "true") {
+        createdTask[thisIndx].classList.toggle("task-toggle");
+        // clickImg[thisIndx].classList.toggle("check-toggle");
+        isitClicked = "false";
+      } else {
+        createdTask[thisIndx].classList.toggle("task-toggle");
+        // clickImg[thisIndx].classList.toggle("check-toggle");
+        isitClicked = "true";
+      }
+      //create splice value
+      let spliceValue = parseInt(thisIndx);
+      //change checkbox clicked to true in array
+      checkboxClickedArray.splice(spliceValue, 1, isitClicked);
+      //convert array into data strings
+      checkboxClickedStr = checkboxClickedArray.join();
+      // save data strings to local storage
+      localStorage.my_checkboxClicked = checkboxClickedStr;
     };
     newTask.appendChild(newTaskCheck);
     //checkbox image
@@ -299,9 +320,26 @@ function createTask() {
     //checkbox click
     newTaskCheck.onclick = function() {
       var thisIndx = event.target.id;
-      console.log(thisIndx);
-      createdTask[thisIndx].classList.toggle("task-toggle");
-      clickImg[thisIndx].classList.toggle("check-toggle");
+      //get current array value
+      isitClicked = checkboxClickedArray[thisIndx];
+      //switch it
+      if (isitClicked == "true") {
+        createdTask[thisIndx].classList.toggle("task-toggle");
+        // clickImg[thisIndx].classList.toggle("check-toggle");
+        isitClicked = "false";
+      } else {
+        createdTask[thisIndx].classList.toggle("task-toggle");
+        // clickImg[thisIndx].classList.toggle("check-toggle");
+        isitClicked = "true";
+      }
+      //create splice value
+      let spliceValue = parseInt(thisIndx);
+      //change checkbox clicked to true in array
+      checkboxClickedArray.splice(spliceValue, 1, isitClicked);
+      //convert array into data strings
+      checkboxClickedStr = checkboxClickedArray.join();
+      // save data strings to local storage
+      localStorage.my_checkboxClicked = checkboxClickedStr;
     };
     newTask.appendChild(newTaskCheck);
     //checkbox image

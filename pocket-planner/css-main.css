@@ -275,9 +275,9 @@ form input, form textarea {
 	display: none;
 }
 
-.check-toggle {
+/* .task-toggle img {
 	display: block;
-}
+} */
 
 /* date separators */
 .task-date-container {
