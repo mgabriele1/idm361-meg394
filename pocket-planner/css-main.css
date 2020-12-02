@@ -51,7 +51,7 @@ h3 {
 	color: var(--mid);
 }
 
-h4, #submit {
+h4, #submit, #submitnew {
 	font-family: proxima-nova, sans-serif;
 	font-weight: 500;
 	font-style: normal;
@@ -190,6 +190,18 @@ form input, form textarea {
 	height: auto;
 	font-weight: 600;
 	box-shadow: rgba(0, 0, 0, 0.068) 4px 3px 3px;
+}
+
+#submitnew {
+	border-radius: 10px;
+	border: none;
+	background-color: var(--dark);
+	padding: .7rem;
+	width: 60%;
+	height: auto;
+	font-weight: 600;
+	box-shadow: rgba(0, 0, 0, 0.068) 4px 3px 3px;
+	display: none;
 }
 
 /* add button */

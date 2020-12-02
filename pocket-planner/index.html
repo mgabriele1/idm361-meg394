@@ -42,21 +42,7 @@
 			</div>
 		</div>
 		<!--TASK LISTING-->
-		<div class="main-content" id="main-content">
-			<!--TASK-->
-			<!-- <div class="task" id="task1">
-				<p>Task filler</p>
-				<h3>April 12, 2020</h3>
-				<div class="checkbox">
-					<img src="img/check.gif" alt="check" class="checkimg">
-				</div>
-			</div>  -->
-			<!--DATE-->
-			<!-- <div class="task-date-container">
-				<h1 id="task-day">TheWeekday</h1>
-				<h2 id="task-date">Month 00, 0000</h2>
-			</div> -->
-		</div>
+		<div class="main-content" id="main-content"></div>
 			
 			<!--ADD BUTTON-->
 			<img src="img/add.svg" alt="add" class="add" id="add">
@@ -65,23 +51,30 @@
 			<div id="add-modal">
 				<img id="modal-x" src="img/x.svg" alt="x">
 				<div class="form-wrapper">
-				<h4>Add Task</h4>
+				<h4 id="add-title">Add Task</h4>
 				<form id="taskform">
 					<div>
 						<h5>Title</h5>
 						<textarea name="taskTitle" id="taskTitle" form="taskform" placeholder="Add description..." value=""></textarea>
+
+						<!-- index counter -->
 						<input type="hidden" name="ndx_result" id="ndx_result" value="0" disabled>
+
+						<!-- checkbox true/false -->
+						<input type="hidden" name="checkboxClicked" id="checkboxClicked" value="false" disabled>
+
 					</div>
 					<div>
 						<h5>Date</h5>
-						<input type="date" id="taskDate" name="taskDate"><br>
+						<input type="date" id="taskDate" name="taskDate" value=""><br>
 					</div>
 					<div>
 						<h5>Details</h5>
-						<textarea name="taskDetails" id="taskDetails" form="taskform" placeholder="Add details..."></textarea>
+						<textarea name="taskDetails" id="taskDetails" form="taskform" placeholder="Add details..." value=""></textarea>
 					</div>
 					<div class="submit-wrapper">
 						<button type="button" name="submit" id="submit" onclick="writeData()">Add Task</button>
+						<button type="button" name="submitnew" id="submitnew" onclick="writeNewData()">Edit Task</button>
 					</div>
 				  </form>
 				</div>
