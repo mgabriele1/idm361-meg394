@@ -258,11 +258,9 @@ function populateTasks() {
       //switch it
       if (isitClicked == "true") {
         createdTask[thisIndx].classList.toggle("task-toggle");
-        // clickImg[thisIndx].classList.toggle("check-toggle");
         isitClicked = "false";
       } else {
         createdTask[thisIndx].classList.toggle("task-toggle");
-        // clickImg[thisIndx].classList.toggle("check-toggle");
         isitClicked = "true";
       }
       //create splice value
@@ -276,9 +274,9 @@ function populateTasks() {
     };
     newTask.appendChild(newTaskCheck);
     //checkbox image
-    var newTaskGif = document.createElement('div');
-    newTaskGif.className = "checkimg";
-    newTask.appendChild(newTaskGif);
+    var newTaskImg = document.createElement('div');
+    newTaskImg.className = "checkimg";
+    newTask.appendChild(newTaskImg);
   }
 }
 
@@ -345,11 +343,9 @@ function createTask() {
       //switch it
       if (isitClicked == "true") {
         createdTask[thisIndx].classList.toggle("task-toggle");
-        // clickImg[thisIndx].classList.toggle("check-toggle");
         isitClicked = "false";
       } else {
         createdTask[thisIndx].classList.toggle("task-toggle");
-        // clickImg[thisIndx].classList.toggle("check-toggle");
         isitClicked = "true";
       }
       //create splice value
@@ -363,57 +359,10 @@ function createTask() {
     };
     newTask.appendChild(newTaskCheck);
     //checkbox image
-    var newTaskGif = document.createElement('div');
-    newTaskGif.className = "checkimg";
-    newTask.appendChild(newTaskGif);
+    var newTaskImg = document.createElement('div');
+    newTaskImg.className = "checkimg";
+    newTask.appendChild(newTaskImg);
 }
-
-/* -------- CHECKBOX ------- */
-
-// window.addEventListener("load", function(event) {
-//   //get elememts
-//   clickCheck = document.getElementsByClassName('checkbox');
-//   createdTask = document.getElementsByClassName('task');
-//   clickImg = document.getElementsByClassName('checkimg');
-
-  //check for click
-  // var i = 0;
-  // while (i < clickCheck.length) {
-  //   var clickedCheck = clickCheck[i];
-  //   // theid = thetaskP[i].id;
-  //   clickedCheck.addEventListener('click', (i) => {
-  //     console.log(i);
-  //   }, false);
-  //   i++;
-  // }
-
-
-  // for(var i = 0; i< clickCheck.length; i++) {
-  //   var clickedCheck = clickCheck[i];
-  //   // var theid = thetaskP.id;
-  //   clickedCheck.addEventListener('click', (i) => {
-  
-  //   }, false);
-
-  //   clickCheck[i].onclick = function() {
-  //       console.log("clicked");
-  //  };
-    // console.log(theid);
-    // clickCheck[i].addEventListener('click', (theid) => {
-    //   console.log(theid);
-    //   createdTask[theid].classList.toggle("task-toggle");
-    //   clickImg[theid].classList.toggle("check-toggle");
-    // }, false);
-  // }
-// });
-// function buttonClick(i) {
-//   console.log("clicked2");
-// }
-
-    // newTaskCheck.onclick = function() {
-    //     newTask.classList.toggle("task-toggle");
-    //     newTaskGif.classList.toggle("check-toggle");
-    // };
 
 /* -------- CURRENT WEEKDAY AND DATE ------- */
 
