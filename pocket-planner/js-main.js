@@ -99,6 +99,12 @@ function writeData() {
             //
             ndx_result.value = mainNdx;
             alert('Record ADDED');
+            //add button and modal
+            var addButton = document.getElementById("add");
+            var addModal = document.getElementById("add-modal");
+            //button on modal off on submit
+            addModal.style.display = "none";
+            addButton.style.display = "block";
             createTask();
             console.log(taskDate.value);
         } else {
@@ -153,6 +159,12 @@ function writeNewData() {
           localStorage.my_taskDate = taskDateStr;
           localStorage.my_taskDetails = taskDetailsStr;
           alert('Record EDITED');
+          //add button and modal
+          var addButton = document.getElementById("add");
+          var addModal = document.getElementById("add-modal");
+          //button on modal off on submit
+          addModal.style.display = "none";
+          addButton.style.display = "block";
           location.reload();
         } else {
             alert('Please add a title');
@@ -193,7 +205,6 @@ function removeTask() {
 
 /* -------- CREATE TASK ------- */
 var createdTask = document.getElementsByClassName('task');
-// var clickImg = document.getElementsByClassName('checkimg');
 
 let mainContent = document.getElementById("main-content");
 function populateTasks() {
@@ -276,7 +287,7 @@ function populateTasks() {
     //checkbox image
     var newTaskImg = document.createElement('div');
     newTaskImg.className = "checkimg";
-    newTask.appendChild(newTaskImg);
+    newTaskCheck.appendChild(newTaskImg);
   }
 }
 
@@ -361,7 +372,7 @@ function createTask() {
     //checkbox image
     var newTaskImg = document.createElement('div');
     newTaskImg.className = "checkimg";
-    newTask.appendChild(newTaskImg);
+    newTaskCheck.appendChild(newTaskImg);
 }
 
 /* -------- CURRENT WEEKDAY AND DATE ------- */
@@ -425,16 +436,6 @@ addButton.addEventListener("click", () => {
 xButton.addEventListener("click", () => {
     addModal.style.display = "none";
     addButton.style.display = "block";
-}, false);
-
-//event listener - submit
-addModalSubmit.addEventListener("click", () => {
-  addModal.style.display = "none";
-  addButton.style.display = "block";
-}, false);
-addModalNewSubmit.addEventListener("click", () => {
-  addModal.style.display = "none";
-  addButton.style.display = "block";
 }, false);
 
 /* -------- HEADER RESIZE ------- */
