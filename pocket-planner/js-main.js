@@ -70,7 +70,7 @@ function writeData() {
     var theSetYear = theSetDate[0];
     console.log("checkin " + theSetYear.length);
     var yearLegnth = parseInt(theSetYear.length);
-    console.log("date " + theDate2 + " /set date " + setTaskDate);
+    console.log("date string" + theDateStr + "date " + theDate2 + " /set date " + setTaskDate);
     console.log(theDate2 == setTaskDate);
     //make sure year string is 4 characters
     if (yearLegnth == 4) {
