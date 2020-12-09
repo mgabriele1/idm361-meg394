@@ -118,19 +118,7 @@ main {
 	padding-top: .1rem;
 }
 
-/* add modal */
-#add-modal {
-	display: none;
-	background-color: var(--light);
-	width: 90%;
-	height: 80%;
-	justify-self: center;
-	z-index: 2;
-	position: absolute;
-	top: 12%;
-	border-radius: 15px;
-	box-shadow: rgba(0, 0, 0, 0.089) 4px 3px 3px;
-}
+/* add modal styling in portrait and landscape queries below*/
 
 #modal-x {
 	width: 15%;
@@ -172,7 +160,7 @@ form input, form textarea {
 }
 
 #taskDate {
-	height: 10%;
+	height: auto;
 	width: 100%;
 }
 
@@ -327,6 +315,18 @@ form input, form textarea {
 		bottom: 3.5%;
 		right: 3.5%;
 	}
+	#add-modal {
+		display: none;
+		background-color: var(--light);
+		width: 90%;
+		height: auto;
+		justify-self: center;
+		align-self: center;
+		z-index: 2;
+		position: absolute;
+		border-radius: 15px;
+		box-shadow: rgba(0, 0, 0, 0.089) 4px 3px 3px;
+	}
 } 
 
 /* LANDSCAPE */
@@ -339,11 +339,11 @@ form input, form textarea {
 		display: none;
 		background-color: var(--light);
 		width: 90%;
-		height: 85%;
+		height: auto;
 		justify-self: center;
+		align-self: center;
 		z-index: 2;
 		position: absolute;
-		top: 12%;
 		border-radius: 15px;
 		box-shadow: rgba(0, 0, 0, 0.089) 4px 3px 3px;
 	}
@@ -370,7 +370,7 @@ form input, form textarea {
 	}
 
 	#taskDate {
-		height: 10%;
+		height: auto;
 		width: 100%;
 	}
 
