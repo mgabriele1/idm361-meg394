@@ -79,6 +79,11 @@ p, input, textarea {
 }
 
 /* background and scroll */
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
 main {
 	background-image: url(img/background.svg);
 	background-color: var(--lightest);

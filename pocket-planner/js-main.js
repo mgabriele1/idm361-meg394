@@ -7,6 +7,13 @@ var checkboxClickedArray = new Array();
 var mainNdx = 0;
 var checkboxClicked = "false";
 
+//initialize strings
+var taskTitleStr = '';
+var taskDateStr = '';
+var taskDetailsStr = '';
+var checkboxClickedStr = '';
+var ndxStr = '';
+
 //READ DATA
 function readData() {
   console.log("readData called");
@@ -61,7 +68,8 @@ function writeData() {
     //convert date string and current date string
     var setTaskDate = Date.parse(taskDate.value);
     if (parseInt(theNumber) < 10) {
-      theNumber = "0" + theNumber; 
+      newnumber = theNumber*1;
+      theNumber = "0" + newnumber; 
     }
     var theDateStr = theYear + "-" + (theMonthNumber +1) + "-" + theNumber;
     var theDate2 = Date.parse(theDateStr);
@@ -70,8 +78,7 @@ function writeData() {
     var theSetYear = theSetDate[0];
     console.log("checkin " + theSetYear.length);
     var yearLegnth = parseInt(theSetYear.length);
-    console.log("date string" + theDateStr + "date " + theDate2 + " /set date " + setTaskDate);
-    console.log(theDate2 == setTaskDate);
+    console.log("current date first " + theDate2 + " set date" + setTaskDate + "CURRENT STRING " + theDateStr);
     //make sure year string is 4 characters
     if (yearLegnth == 4) {
       //make sure the date has not passed
@@ -128,10 +135,12 @@ function writeNewData() {
     //convert date string and current date string
     var setTaskDate = Date.parse(taskDate.value);
     if (parseInt(theNumber) < 10) {
-      theNumber = "0" + theNumber; 
+      newnumber = theNumber*1;
+      theNumber = "0" + newnumber; 
     }
     var theDateStr = theYear + "-" + (theMonthNumber +1) + "-" + theNumber;
     var theDate2 = Date.parse(theDateStr);
+    console.log("current date first " + theDate2 + " set date" + setTaskDate + "CURRENT STRING " + theDateStr);
     //split date string, grab year, check length
     var theSetDate = taskDate.value.split("-");
     var theSetYear = theSetDate[0];
@@ -144,7 +153,7 @@ function writeNewData() {
         //make sure a title is entered
         if (taskTitle.value !== "") {
           console.log("passed all " + thisIndx);
-          let spliceValue = parseInt(thisIndx);
+          var spliceValue = parseInt(thisIndx);
           console.log("passed all " + spliceValue);
           //replace data in array
           taskTitleArray.splice(spliceValue, 1, taskTitle.value);
@@ -183,7 +192,7 @@ function writeNewData() {
 
 function removeTask() {
   console.log("remove index records number " + thisIndx);
-  let spliceValue = parseInt(thisIndx);
+  var spliceValue = parseInt(thisIndx);
   //replace data in array
   taskTitleArray.splice(spliceValue, 1);
   taskDateArray.splice(spliceValue, 1);
@@ -205,12 +214,15 @@ function removeTask() {
 
 /* -------- CREATE TASK ------- */
 var createdTask = document.getElementsByClassName('task');
+//new submit button
+var addModalNewSubmit = document.getElementById("submitnew");
 
-let mainContent = document.getElementById("main-content");
+var mainContent = document.getElementById("main-content");
 function populateTasks() {
   for (i = 0; i < taskTitleArray.length; i++) {
     //create task div
     var newTask = document.createElement('div');
+    //check for checkbox click
     if (checkboxClickedArray[i] == "true") {
       newTask.className = 'task task-toggle';
     } else {
@@ -224,17 +236,21 @@ function populateTasks() {
     //bring up modal on click
     newTaskP.id = i;
     newTaskP.onclick = function() {
-      thisIndx = event.target.id
+      thisIndx = event.target.id;
       //display modal
       addModal.style.display = "block";
       //get title and submit
-      let addModalTitle = document.getElementById("add-title");
-      let addModalSubmit = document.getElementById("submit");
+      var addModalTitle = document.getElementById("add-title");
+      var addModalSubmit = document.getElementById("submit");
       //edit title and button to say edit and turn on
       addModalTitle.innerHTML = "Edit Task";
       addModalSubmit.style.display = "none";
       addModalNewSubmit.style.display = "block";
-      addModalDelete.style.display = "block";
+      if (taskTitleArray[1] === undefined) {
+        addModalDelete.style.display = "none";
+      } else {
+        addModalDelete.style.display = "block";
+      }
       // Update web form fields with new values
       taskTitle.value = taskTitleArray[thisIndx];
       taskDate.value = taskDateArray[thisIndx];
@@ -248,9 +264,9 @@ function populateTasks() {
     var theSetDate = taskDateArray[i].split("-");
     var theSetYear = theSetDate[0];
     var theSetMonth = theSetDate[1];
-    if (theSetMonth.charAt(0) == 0) {
+    if (theSetMonth.charAt(0) === 0) {
       theSetMonth = theSetMonth.substring(1);
-    } else {}
+    }
     var monthNumber = parseInt(theSetMonth) - 1;
     var monthAbbrev = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var theMonthAbbrev = monthAbbrev[monthNumber];
@@ -275,7 +291,7 @@ function populateTasks() {
         isitClicked = "true";
       }
       //create splice value
-      let spliceValue = parseInt(thisIndx);
+      var spliceValue = parseInt(thisIndx);
       //change checkbox clicked to true in array
       checkboxClickedArray.splice(spliceValue, 1, isitClicked);
       //convert array into data strings
@@ -293,8 +309,8 @@ function populateTasks() {
 
 /* -------- TASK ADD ------- */
 //check number of existing tasks
-window.addEventListener("load", function(event) {
-  createdTaskLength = document.getElementsByClassName('task').length
+window.addEventListener("load", function() {
+  createdTaskLength = document.getElementsByClassName('task').length;
   console.log(createdTaskLength);
 });
 
@@ -310,12 +326,12 @@ function createTask() {
     //bring up modal on click
     newTaskP.id = createdTaskLength;
     newTaskP.onclick = function() {
-      var thisIndx = event.target.id
+      var thisIndx = event.target.id;
       //display modal
       addModal.style.display = "block";
       //get title and submit
-      let addModalTitle = document.getElementById("add-title");
-      let addModalSubmit = document.getElementById("submit");
+      var addModalTitle = document.getElementById("add-title");
+      var addModalSubmit = document.getElementById("submit");
       //edit title and button to say edit and turn on
       addModalTitle.innerHTML = "Edit Task";
       addModalSubmit.style.display = "none";
@@ -333,9 +349,9 @@ function createTask() {
     var theSetDate = taskDateArray[createdTaskLength].split("-");
     var theSetYear = theSetDate[0];
     var theSetMonth = theSetDate[1];
-    if (theSetMonth.charAt(0) == 0) {
+    if (theSetMonth.charAt(0) === 0) {
       theSetMonth = theSetMonth.substring(1);
-    } else {}
+    }
     var monthNumber = parseInt(theSetMonth) - 1;
     var monthAbbrev = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var theMonthAbbrev = monthAbbrev[monthNumber];
@@ -360,7 +376,7 @@ function createTask() {
         isitClicked = "true";
       }
       //create splice value
-      let spliceValue = parseInt(thisIndx);
+      var spliceValue = parseInt(thisIndx);
       //change checkbox clicked to true in array
       checkboxClickedArray.splice(spliceValue, 1, isitClicked);
       //convert array into data strings
@@ -373,6 +389,8 @@ function createTask() {
     var newTaskImg = document.createElement('div');
     newTaskImg.className = "checkimg";
     newTaskCheck.appendChild(newTaskImg);
+    //reload page
+    location.reload();
 }
 
 /* -------- CURRENT WEEKDAY AND DATE ------- */
@@ -405,18 +423,16 @@ document.getElementById("date").innerHTML = theMonth + " " + theNumber + ", " + 
 
 //buttons
 var addButton = document.getElementById("add");
-var xButton = document.getElementById("modal-x")
+var xButton = document.getElementById("modal-x");
 
 //modal
 var addModal = document.getElementById("add-modal");
 
 //get title and submit
-let addModalTitle = document.getElementById("add-title");
-let addModalSubmit = document.getElementById("submit");
+var addModalTitle = document.getElementById("add-title");
+var addModalSubmit = document.getElementById("submit");
 //get remove
-let addModalDelete = document.getElementById("remove");
-//new submit
-let addModalNewSubmit = document.getElementById("submitnew");
+var addModalDelete = document.getElementById("remove");
 
 //event listener - modal off, modal on for click
 addButton.addEventListener("click", () => {
@@ -441,11 +457,13 @@ xButton.addEventListener("click", () => {
 /* -------- HEADER RESIZE ------- */
 
 //get header
-let theHeader = document.getElementById("header");
+var theHeader = document.getElementById("header");
 //get main container
 var theMain = document.getElementById("content");
 //call function on scroll of main container
-theMain.onscroll = function() {scrollFunction()};
+theMain.onscroll = function() {
+  scrollFunction();
+};
 
 //function changes header if page has been scrolled
 function scrollFunction() {

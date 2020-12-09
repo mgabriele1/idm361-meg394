@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version - 1.0
+# version - 3.0
 
 CACHE:
 
@@ -11,6 +11,7 @@ CACHE:
 # IMAGES
  img/add.svg
  img/background.svg
+
  img/icon.ico
  img/icon.png
  img/icon.svg
